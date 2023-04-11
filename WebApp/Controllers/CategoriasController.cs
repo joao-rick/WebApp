@@ -23,5 +23,17 @@ namespace WebApp.Controllers
         {
             return View(categorias);
         }
+
+        public ActionResult Create()
+        {
+            return View(categorias);
+        }
+
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
+
+
     }
 }
