@@ -1,45 +1,52 @@
 ﻿@model WebApp.Models.Home
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
 }
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
-        <title>Home</title>
-    </head>
-    <body>
-        <div>
-            <table class="table">
-                <tr>
-                    <th class="bg-primary" style="padding: 0.7em; border-radius:5px; border-top:none;font-size:1.3em">Fabricantes</th>
-                </tr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 border">
+            <h3 class="bg-primary" style="padding: 0.5em; border-radius: 5px">Fabricantes</h3>
+            <ul class="list-group">
                 @foreach (var fabricante in Model.Fabricantes)
                 {
-                    <td class="list-group-item" style="margin-top:0.4em">
+                    <li class="list-group-item">
                         @Html.ActionLink(fabricante.Nome, "Details", "Fabricantes", new { id = fabricante.FabricanteId }, null)
-                    </td>
+                    </li>
                 }
-
-            </table>
-            <table class="table">
-                <tr>
-                    <th class="bg-primary" style="padding: 0.7em; border-radius:5px; border-top:none;font-size:1.3em">Categorias</th>
-                </tr>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 border">
+            <h3 class="bg-primary" style="padding: 0.5em; border-radius: 5px">Categorias</h3>
+            <ul class="list-group">
                 @foreach (var categoria in Model.Categorias)
                 {
-                    <td class="list-group-item" style="margin-top:0.4em">
+                    <li class="list-group-item">
                         @Html.ActionLink(categoria.Nome, "Details", "Categorias", new { id = categoria.CategoriaId }, null)
-                    </td>
+                    </li>
                 }
-
-            </table>
+            </ul>
         </div>
+    </div>
+</div>
 
+@section styles{
+    <link href="@Url.Content("~/Content/DataTables-1.10.2/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
 
-        <script src="@Url.Content("~/scripts/jquery-2.2.4.js")"></script>
-        <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
-    </body>
-    </html>
+@section ScriptPage{
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable();
+            $('li').removeClass("active");
+            $('#liHome').addClass("active");
+        });
+    </script>
+}
