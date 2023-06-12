@@ -55,6 +55,16 @@ namespace WebApp.Controllers
                 return View(produto);
             }
 
+        // GET: Produtos/Create
+        public ActionResult Create()
+        {
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome),
+            "CategoriaId", "Nome");
+            ViewBag.FabricanteId = new SelectList(context.Fabricantes.OrderBy(b => b.Nome),
+            "FabricanteId", "Nome");
+            return View();
+        }
+
         // POST: Produtos/Create
         [HttpPost]
         public ActionResult Create(Produto produto)

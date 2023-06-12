@@ -8,6 +8,8 @@
     <div class="panel-heading">
         Visualizando detalhes de uma CATEGORIA
     </div>
+
+    @Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", Model.Produtos.ToList())
     <div class="panel-body">
         <div class="form-group">
             @Html.LabelFor(model => model.Nome)
