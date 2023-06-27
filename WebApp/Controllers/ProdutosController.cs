@@ -7,6 +7,7 @@ using WebApp.Context;
 using System.Data.Entity;
 using System.Net;
 using WebApp.Models;
+using System.IO;
 
 namespace WebApp.Controllers
 {
@@ -22,6 +23,7 @@ namespace WebApp.Controllers
                 OrderBy(n => n.Nome);
                 return View(produtos);
             }
+
 
         // GET: Produtos/Details/5
         public ActionResult Details(long? id)
@@ -101,14 +103,52 @@ namespace WebApp.Controllers
             return View(produto);
         }
 
+        public ActionResult DownloadArquivo(long id)
+        {
+            Produto produto = context.Produtos.Find(id);
+
+            //FileStream fileStream = new FileStream(Server.MapPath(
+            //"~/App_Data/" + produto.NomeArquivo), FileMode.Create,
+            //FileAccess.Write);
+            //fileStream.Write(produto.Logotipo, 0,
+            //Convert.ToInt32(produto.TamanhoArquivo));
+            //fileStream.Close();
+            return File(produto.Logotipo, produto.LogotipoMimeType, produto.NomeArquivo);
+        }
+
+        public FileContentResult GetLogotipo(long id)
+        {
+            Produto produto = context.Produtos.Find(id);
+            if (produto != null)
+            {
+                return File(produto.Logotipo, produto.LogotipoMimeType);
+            }
+            return null;
+        }
+
         // POST: Produtos/Edit/5
         [HttpPost]
-        public ActionResult Edit(Produto produto)
+        public ActionResult Edit(Produto produto, HttpPostedFileBase logotipo = null, string chkRemoverImagem = null)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    if (chkRemoverImagem != null)
+                    {
+                        produto = null;
+                    }
+
+                    if (logotipo != null)
+                    {
+                        var buffer = new byte[logotipo.ContentLength];
+                        logotipo.InputStream.Read(buffer, 0, logotipo.ContentLength);
+                        produto.Logotipo = buffer;
+                        produto.LogotipoMimeType = logotipo.ContentType;
+                        produto.NomeArquivo = logotipo.FileName;
+                        produto.TamanhoArquivo = logotipo.ContentLength;
+                    }
+
                     context.Entry(produto).State = EntityState.Modified;
                     context.SaveChanges();
                     return RedirectToAction("Index");
