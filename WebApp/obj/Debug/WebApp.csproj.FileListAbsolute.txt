@@ -135,12 +135,17 @@ C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\EntityFramework.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\EntityFramework.SqlServer.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Modelo.dll
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Persistencia.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Helpers.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Mvc.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Razor.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Webpages.Deployment.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Webpages.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\System.Web.Webpages.Razor.dll
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Modelo.pdb
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Persistencia.pdb
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Persistencia.dll.config
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\EntityFramework.xml
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\EntityFramework.SqlServer.xml
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -156,7 +161,7 @@ C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\pt-br\System.Web.Webpages
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\pt-br\System.Web.Webpages.Razor.resources.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\pt-br\System.Web.Helpers.resources.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\20211011110002\Source\Repos\WebApp\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\obj\Debug\WebApp.dll
 C:\Users\20211011110002\Source\Repos\WebApp\WebApp\obj\Debug\WebApp.pdb
-C:\Users\20211011110002\Source\Repos\WebApp\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
