@@ -51,7 +51,7 @@
     <Compile Include="Contexts\EFContext.cs" />
     <Compile Include="DAL\Cadastros\ProdutoDAL.cs" />
     <Compile Include="DAL\Cadastros\FabricanteDAL.cs" />
-    <Compile Include="DAL\Tabelas\Class1.cs" />
+    <Compile Include="DAL\Tabelas\CategoriaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

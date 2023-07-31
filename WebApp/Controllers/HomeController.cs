@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApp.Models;
-using Modelo.Cadastros;
-using Modelo.Tabelas;
 using System.Data.Entity;
-using Persistencia.Contexts;
+using Servico.Cadastros;
+using Servico.Tabelas;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly EFContext context = new EFContext();
+        private ProdutoServico produtoServico = new ProdutoServico();
+        private CategoriaServico categoriaServico = new CategoriaServico();
+        private FabricanteServico fabricanteServico = new FabricanteServico();
 
         // GET: Home
         public ActionResult Index()
         {
-            var categorias = context.Categorias;
-            var fabricantes = context.Fabricantes;
+            var categorias = categoriaServico.ObterCategoriasClassificadasPorNome();
+            var fabricantes = fabricanteServico.ObterFabricantesClassificadosPorNome();
             var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
             return View(home);
         }
@@ -27,8 +26,8 @@ namespace WebApp.Controllers
         
         public ActionResult Categoria(int id)
         {
-            var categorias = context.Categorias.Include("Produtos.Categoria");
-            var fabricantes = context.Fabricantes.Include("Produtos.Fabricante");
+            var categorias = categoriaServico.ObterCategoriasComProdutos();
+            var fabricantes = fabricanteServico.ObterFabricantesComProdutos();
             var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
             ViewData["item"] = categorias.Where(c => c.CategoriaId == id).First().Produtos;
             ViewData["categoria"] = true;
@@ -37,8 +36,8 @@ namespace WebApp.Controllers
 
         public ActionResult Fabricante(int id)
         {
-            var categorias = context.Categorias.Include("Produtos.Categoria");
-            var fabricantes = context.Fabricantes.Include("Produtos.Fabricante");
+            var categorias = categoriaServico.ObterCategoriasComProdutos();
+            var fabricantes = fabricanteServico.ObterFabricantesComProdutos();
             var home = new Home() { Fabricantes = fabricantes, Categorias = categorias };
             ViewData["item"] = fabricantes.Where(f => f.FabricanteId == id).First().Produtos;
             ViewData["categoria"] = false;
